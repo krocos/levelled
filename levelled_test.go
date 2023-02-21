@@ -9,9 +9,9 @@ import (
 	"github.com/krocos/levelled"
 )
 
-func ExampleBreakSeverityLevel() {
+func ExampleLogger_Error() {
 	// Here we wrap zap logger to provide severity level (here it is the error lvl)
-	llogger := levelled.NewLogger(zap.NewExample(), zapcore.ErrorLevel)
+	llogger := levelled.New(zap.NewExample(), zapcore.ErrorLevel)
 
 	// These logs will not be logged until error log occur
 	llogger.Debug("first")

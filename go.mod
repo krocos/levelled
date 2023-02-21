@@ -1,8 +1,8 @@
 module github.com/krocos/levelled
 
-go 1.17
+go 1.20
 
-require go.uber.org/zap v1.19.1
+require go.uber.org/zap v1.24.0
 
 require (
 	go.uber.org/atomic v1.7.0 // indirect

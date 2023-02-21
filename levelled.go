@@ -19,7 +19,7 @@ type log struct {
 	fields []zap.Field
 }
 
-func NewLogger(logger *zap.Logger, severity zapcore.Level) *Logger {
+func New(logger *zap.Logger, severity zapcore.Level) *Logger {
 	return &Logger{
 		logs:     make([]*log, 0),
 		logger:   logger,
@@ -71,6 +71,10 @@ func (l *Logger) Erase() {
 }
 
 func (l *Logger) handle(entry *zapcore.CheckedEntry, fields ...zap.Field) {
+	if entry == nil {
+		return
+	}
+
 	l.mu.Lock()
 	defer l.mu.Unlock()
 
